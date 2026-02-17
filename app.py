@@ -1,7 +1,7 @@
 import streamlit as st
 import time
 
-# Production config - perfect for Streamlit Cloud
+# Production config
 st.set_page_config(
     page_title="🙏 Guru Ankit Sharma Farewell 🙏",
     page_icon="👋",
@@ -9,7 +9,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Festive CSS theme - mobile responsive
+# Festive CSS theme
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -64,7 +64,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Session state - production ready
+# Session state
 if 'guru_clicked' not in st.session_state:
     st.session_state.guru_clicked = False
 if 'juniors_clicked' not in st.session_state:
@@ -76,8 +76,8 @@ if 'celebration_done' not in st.session_state:
 st.title("🌟 Guru Ankit Sharma को Heartfelt विदाई 🌟")
 st.markdown("**Real Guru & हमारे Nanhe Munne Juniors के लिए Special App**")
 
-# Main content - responsive columns
-col1, col2 = st.columns(2, gap="2rem")
+# ✅ FIXED: Use valid gap="large"
+col1, col2 = st.columns(2, gap="large")
 
 with col1:
     st.markdown('<div class="guru-card">', unsafe_allow_html=True)
@@ -137,9 +137,9 @@ if st.session_state.guru_clicked or st.session_state.juniors_clicked:
             time.sleep(0.5)
         st.markdown("**🇮🇳 Guru Ankit Sharma - आप हमेशा हमारे दिल में! 🙏**")
 
-# Production footer
+# Footer
 st.markdown("---")
-col_left, col_right = st.columns([2, 1])
+col_left, col_right = st.columns([2, 1])  # ✅ No gap param needed for simple columns
 
 with col_left:
     st.success("✅ **Production Ready** - Deployed on Streamlit Cloud")
@@ -149,7 +149,7 @@ with col_right:
     st.markdown("**Share:**")
     st.code("https://nickgetshigh-axyzcg4s8ysyj3gouov7jh.streamlit.app")
 
-# Sidebar - extras
+# Sidebar
 with st.sidebar:
     st.markdown("### 🎮 **App Controls**")
     if st.button("🔄 Reset Celebration", use_container_width=True):
@@ -161,10 +161,9 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("**🚀 Production Features:**")
     st.markdown("- ✅ Zero external dependencies")
-    st.markdown("- ✅ Mobile responsive design")
-    st.markdown("- ✅ Native animations (balloons+snow)")
-    st.markdown("- ✅ Session state management")
-    st.markdown("- ✅ Auto-deploy on Git push")
+    st.markdown("- ✅ Mobile responsive")
+    st.markdown("- ✅ Native animations")
+    st.markdown("- ✅ Session state")
 
 st.markdown("---")
 st.caption("💙 *Team's tribute to our Real Guru Ankit Sharma ji*")
